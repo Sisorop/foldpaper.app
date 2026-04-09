@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — FoldPaper</title>
+    <style>
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1c25;
+            --border: #2a2d3a;
+            --text: #e4e4e8;
+            --text-muted: #9395a5;
+            --accent: #7c6cf0;
+            --accent-hover: #9589f5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav .container {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        nav .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.15s;
+        }
+
+        nav .links a:hover { color: var(--accent-hover); }
+        nav .links a.active { color: var(--accent); }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .updated {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+
+        p, li { color: var(--text); margin-bottom: 0.75rem; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.4rem; }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        .placeholder {
+            background: #2a1f3d;
+            border: 1px dashed var(--accent);
+            border-radius: 4px;
+            padding: 0.15rem 0.4rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">FoldPaper</a>
+            <div class="links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms" class="active">Terms of Service</a>
+                <a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Terms of Service</h1>
+        <p class="updated">Last updated: <span class="placeholder">[PLACEHOLDER: date, e.g. April 9, 2026]</span></p>
+
+        <p>These Terms of Service ("Terms") govern your use of the FoldPaper application ("the app"), developed and operated by Sisorop. By downloading, installing, or using FoldPaper, you agree to these Terms.</p>
+
+        <h2>1. Description of Service</h2>
+        <p>FoldPaper is an Android live wallpaper application that allows you to set dynamic wallpapers with depth effects, motion layers, and fold-reactive behavior. The app operates locally on your device.</p>
+
+        <h2>2. Permitted Use</h2>
+        <p>You may use FoldPaper for personal, non-commercial purposes on Android devices you own or control. You may:</p>
+        <ul>
+            <li>Set and customize live wallpapers using your own images</li>
+            <li>Create and save presets and configurations</li>
+            <li>Purchase in-app upgrades to remove advertisements</li>
+        </ul>
+
+        <h2>3. Prohibited Actions</h2>
+        <p>You may not:</p>
+        <ul>
+            <li>Reverse engineer, decompile, disassemble, or otherwise attempt to extract the source code of the app</li>
+            <li>Modify, adapt, or create derivative works based on the app</li>
+            <li>Redistribute, sublicense, rent, lease, or lend the app to third parties</li>
+            <li>Remove, alter, or obscure any copyright, trademark, or proprietary notices</li>
+            <li>Use the app for any unlawful purpose or in violation of any applicable laws</li>
+            <li>Attempt to circumvent any security measures, licensing mechanisms, or access controls</li>
+        </ul>
+
+        <h2>4. In-App Purchases</h2>
+        <p>FoldPaper offers three in-app purchase tiers. All tiers serve the same purpose: permanently removing advertisements from the app. The tiers differ only in price and represent voluntary support levels.</p>
+        <ul>
+            <li><strong>One-time purchases:</strong> All in-app purchases are one-time, non-recurring payments. There are no subscriptions.</li>
+            <li><strong>Ad removal:</strong> Once purchased, ads are removed permanently for the Google Play account used to make the purchase. Ad removal is tied to your Google Play account, not to a specific device.</li>
+            <li><strong>Refunds:</strong> In-app purchases are generally non-refundable, except where required by applicable law or <a href="https://support.google.com/googleplay/answer/2479637">Google Play's refund policy</a>. Refund requests are handled by Google Play.</li>
+            <li><strong>No consumables:</strong> Purchases are not consumed and do not expire.</li>
+        </ul>
+
+        <h2>5. Intellectual Property</h2>
+        <p>FoldPaper, including its code, design, graphics, and documentation, is the intellectual property of Sisorop and is protected by copyright and other intellectual property laws. Your wallpaper configurations and imported images remain your property.</p>
+
+        <h2>6. Disclaimer of Warranties</h2>
+        <p>FoldPaper is provided "as is" and "as available" without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+        <p>We do not warrant that:</p>
+        <ul>
+            <li>The app will be uninterrupted, error-free, or free of harmful components</li>
+            <li>The app will be compatible with all devices or Android versions</li>
+            <li>Wallpapers will display identically across all screen configurations</li>
+        </ul>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, Sisorop shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, or device malfunction, arising out of or related to your use of the app.</p>
+        <p>Our total liability for any claim arising from or related to the app shall not exceed the amount you paid for in-app purchases in the twelve (12) months preceding the claim.</p>
+
+        <h2>8. Third-Party Services</h2>
+        <p>The app integrates third-party services (Google AdMob, Google Play Billing, Google ML Kit) that are subject to their own terms of service. Your use of these services is governed by their respective terms. We are not responsible for the practices of third-party service providers.</p>
+
+        <h2>9. Updates and Changes</h2>
+        <p>We may update the app from time to time to add features, fix bugs, or improve performance. We may also discontinue the app or any feature at any time without notice. These Terms may be updated; continued use of the app after changes constitutes acceptance of the updated Terms.</p>
+
+        <h2>10. Termination</h2>
+        <p>You may stop using the app at any time by uninstalling it. We reserve the right to restrict access to the app if these Terms are violated. Upon termination, your locally stored data remains on your device until you remove it.</p>
+
+        <h2>11. Governing Law and Jurisdiction</h2>
+        <p>These Terms are governed by the laws of the Federal Republic of Germany, excluding the UN Convention on Contracts for the International Sale of Goods (CISG). If you are a consumer in the EU, you also retain the protection of mandatory consumer protection laws of your country of residence.</p>
+
+        <h2>12. Severability</h2>
+        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.</p>
+
+        <h2>13. Contact</h2>
+        <p>For questions about these Terms, contact us at:<br>
+            <span class="placeholder">[PLACEHOLDER: email address]</span>
+        </p>
+    </main>
+
+    <footer>
+        &copy; 2025 Sisorop. All rights reserved.
+    </footer>
+</body>
+</html>

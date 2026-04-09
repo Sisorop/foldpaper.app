@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — FoldPaper</title>
+    <style>
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1c25;
+            --border: #2a2d3a;
+            --text: #e4e4e8;
+            --text-muted: #9395a5;
+            --accent: #7c6cf0;
+            --accent-hover: #9589f5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav .container {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        nav .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.15s;
+        }
+
+        nav .links a:hover { color: var(--accent-hover); }
+        nav .links a.active { color: var(--accent); }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .updated {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, li { color: var(--text); margin-bottom: 0.75rem; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.4rem; }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        .placeholder {
+            background: #2a1f3d;
+            border: 1px dashed var(--accent);
+            border-radius: 4px;
+            padding: 0.15rem 0.4rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--surface);
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">FoldPaper</a>
+            <div class="links">
+                <a href="/privacy" class="active">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: <span class="placeholder">[PLACEHOLDER: date, e.g. April 9, 2026]</span></p>
+
+        <p>This Privacy Policy explains how FoldPaper ("we", "us", "the app") handles your information. FoldPaper is a live wallpaper application for Android, developed by Sisorop.</p>
+
+        <h2>1. Data Controller</h2>
+        <p>
+            <span class="placeholder">[PLACEHOLDER: full name]</span><br>
+            Sisorop<br>
+            <span class="placeholder">[PLACEHOLDER: street address]</span><br>
+            <span class="placeholder">[PLACEHOLDER: postal code and city]</span><br>
+            Germany<br>
+            Email: <span class="placeholder">[PLACEHOLDER: email address]</span>
+        </p>
+
+        <h2>2. Data We Collect</h2>
+        <p>FoldPaper is designed to work locally on your device. We do not operate servers, do not require user accounts, and do not collect personal data for our own purposes. The following data processing occurs:</p>
+
+        <h3>2.1 Data Stored Locally on Your Device</h3>
+        <p>All of the following stays on your device and is never transmitted to us or any third party:</p>
+        <ul>
+            <li>Wallpaper configurations, presets, and settings (via Android DataStore)</li>
+            <li>Album data: image references, crop overrides, motion configurations</li>
+            <li>Depth masks generated by on-device ML processing (stored as local PNG files)</li>
+            <li>App preferences (theme, accent color, language, onboarding status)</li>
+            <li>Purchase status (which in-app purchase tiers you own)</li>
+        </ul>
+
+        <h3>2.2 Crash Reports (Optional)</h3>
+        <p>When the app crashes, a log file containing the stack trace, device model, Android version, and app version is saved locally. On next launch, you are asked whether to send this report. You may also enable automatic crash report submission. Reports are sent via HTTPS to a Google Forms endpoint and contain:</p>
+        <ul>
+            <li>Crash stack trace (technical error information)</li>
+            <li>Device manufacturer, model, Android version, API level</li>
+            <li>App version and build type</li>
+            <li>Your optional message (if you choose to add one)</li>
+        </ul>
+        <p>No personal identifiers (name, email, IP address) are intentionally collected. You can disable automatic sending at any time in the app settings.</p>
+
+        <h3>2.3 Feedback &amp; Bug Reports (User-Initiated)</h3>
+        <p>If you choose to submit feedback or a bug report through the app, the following is sent to a Google Forms endpoint:</p>
+        <ul>
+            <li>Your message</li>
+            <li>Report type (feature request or bug report)</li>
+            <li>Device manufacturer, model, Android version, API level</li>
+            <li>App version and build type</li>
+        </ul>
+
+        <h3>2.4 On-Device Image Processing</h3>
+        <p>FoldPaper uses Google ML Kit Subject Segmentation to generate depth masks from your images. This processing runs entirely on your device. Images are not uploaded to any server for this feature.</p>
+
+        <h2>3. Third-Party Services</h2>
+        <p>FoldPaper integrates the following third-party services, each with their own privacy practices:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Provider</th>
+                    <th>Purpose</th>
+                    <th>Data Processed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Google AdMob</td>
+                    <td>Google LLC</td>
+                    <td>Display advertisements</td>
+                    <td>Device identifiers, ad interaction data (see <a href="https://policies.google.com/privacy">Google Privacy Policy</a>)</td>
+                </tr>
+                <tr>
+                    <td>Google User Messaging Platform (UMP)</td>
+                    <td>Google LLC</td>
+                    <td>GDPR consent management for ads</td>
+                    <td>Consent choices</td>
+                </tr>
+                <tr>
+                    <td>Google Play Billing</td>
+                    <td>Google LLC</td>
+                    <td>In-app purchases</td>
+                    <td>Purchase transactions (handled by Google Play)</td>
+                </tr>
+                <tr>
+                    <td>Google ML Kit</td>
+                    <td>Google LLC</td>
+                    <td>On-device subject segmentation</td>
+                    <td>Image data processed locally; model may be downloaded from Google</td>
+                </tr>
+                <tr>
+                    <td>Google Play In-App Review</td>
+                    <td>Google LLC</td>
+                    <td>App rating prompt</td>
+                    <td>Handled entirely by Google Play</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>We do <strong>not</strong> use Firebase Analytics, Crashlytics, or any third-party analytics or tracking SDKs.</p>
+
+        <h2>4. Advertising &amp; Your Choices</h2>
+        <p>The free version of FoldPaper displays ads served by Google AdMob. AdMob may collect device identifiers and use cookies or similar technologies to serve personalized ads.</p>
+        <p>You have the following choices regarding ads:</p>
+        <ul>
+            <li><strong>Consent management:</strong> When you first use the app (in applicable regions), a consent dialog is shown. You may choose to accept or decline personalized advertising.</li>
+            <li><strong>Ad-free experience:</strong> You may purchase any of the in-app purchase tiers to permanently remove all ads.</li>
+            <li><strong>Device settings:</strong> You can reset your advertising identifier or opt out of ad personalization via your Android device settings.</li>
+        </ul>
+
+        <h2>5. Legal Basis for Processing (GDPR Art. 6)</h2>
+        <ul>
+            <li><strong>Consent (Art. 6(1)(a)):</strong> Crash report submission (optional), feedback submission (user-initiated), personalized advertising (via UMP consent dialog).</li>
+            <li><strong>Legitimate interest (Art. 6(1)(f)):</strong> Displaying non-personalized ads to support the free version of the app; basic device information in crash reports to diagnose and fix bugs.</li>
+            <li><strong>Contract performance (Art. 6(1)(b)):</strong> Processing in-app purchases through Google Play Billing.</li>
+        </ul>
+
+        <h2>6. Data Retention</h2>
+        <ul>
+            <li><strong>Local data:</strong> Stored on your device until you clear app data or uninstall the app.</li>
+            <li><strong>Crash reports &amp; feedback:</strong> Stored in Google Forms/Sheets indefinitely for debugging purposes. These contain no personal identifiers.</li>
+            <li><strong>Ad-related data:</strong> Governed by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+        </ul>
+
+        <h2>7. Data Transfers</h2>
+        <p>Crash reports and feedback are transmitted to Google Forms (Google LLC, USA). Google is certified under the EU-U.S. Data Privacy Framework. Ad-related data processing by Google AdMob may also involve transfers to the USA under the same framework.</p>
+
+        <h2>8. Your Rights (GDPR)</h2>
+        <p>Under the General Data Protection Regulation, you have the right to:</p>
+        <ul>
+            <li><strong>Access</strong> (Art. 15) — request information about data we process about you</li>
+            <li><strong>Rectification</strong> (Art. 16) — request correction of inaccurate data</li>
+            <li><strong>Erasure</strong> (Art. 17) — request deletion of your data</li>
+            <li><strong>Restriction</strong> (Art. 18) — request restricted processing</li>
+            <li><strong>Data portability</strong> (Art. 20) — receive your data in a structured format</li>
+            <li><strong>Object</strong> (Art. 21) — object to processing based on legitimate interest</li>
+            <li><strong>Withdraw consent</strong> (Art. 7(3)) — withdraw consent at any time without affecting prior processing</li>
+        </ul>
+        <p>To exercise these rights, contact us at <span class="placeholder">[PLACEHOLDER: email address]</span>.</p>
+        <p>You also have the right to lodge a complaint with a supervisory authority. The competent authority in Germany is:</p>
+        <p><span class="placeholder">[PLACEHOLDER: Zuständige Landesdatenschutzbehörde, e.g. "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg"]</span></p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>FoldPaper is not directed at children under 16. We do not knowingly collect personal data from children. If you believe a child has submitted data through a crash or feedback report, please contact us and we will delete it.</p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+        <h2>11. Contact</h2>
+        <p>
+            <span class="placeholder">[PLACEHOLDER: full name]</span><br>
+            Sisorop<br>
+            Email: <span class="placeholder">[PLACEHOLDER: email address]</span>
+        </p>
+    </main>
+
+    <footer>
+        &copy; 2025 Sisorop. All rights reserved.
+    </footer>
+</body>
+</html>

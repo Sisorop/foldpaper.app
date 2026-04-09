@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoldPaper — Live Wallpaper for Foldables &amp; Beyond</title>
+    <meta name="description" content="FoldPaper transforms your Android device with dynamic live wallpapers that react to your foldable screen.">
+    <style>
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1c25;
+            --border: #2a2d3a;
+            --text: #e4e4e8;
+            --text-muted: #9395a5;
+            --accent: #7c6cf0;
+            --accent-hover: #9589f5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav .container {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        nav .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.15s;
+        }
+
+        nav .links a:hover { color: var(--accent-hover); }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-icon {
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, var(--accent), #5b4cc4);
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-icon svg {
+            width: 48px;
+            height: 48px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.15s;
+            margin-bottom: 3rem;
+        }
+
+        .cta:hover { background: var(--accent-hover); }
+
+        .legal-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .legal-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.15s;
+        }
+
+        .legal-links a:hover {
+            color: var(--text);
+            border-color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">FoldPaper</a>
+            <div class="links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 4h16v16H4z"/>
+                <path d="M12 4v16"/>
+                <path d="M4 12h16"/>
+            </svg>
+        </div>
+        <h1>FoldPaper</h1>
+        <p class="tagline">Dynamic live wallpapers that react to your foldable screen — with depth effects, motion layers, and presets for every device.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.sisorop.foldpaper" class="cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Get it on Google Play
+        </a>
+        <div class="legal-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/impressum">Impressum</a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Sisorop. All rights reserved.
+    </footer>
+</body>
+</html>
