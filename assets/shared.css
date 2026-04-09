@@ -71,10 +71,11 @@ nav .logo {
 nav .logo:hover { text-decoration: none; }
 
 nav .logo .logo-icon { width: 28px; height: 28px; }
-nav .logo .icon-dark { display: block; }
-nav .logo .icon-light { display: none; }
-[data-theme="light"] nav .logo .icon-dark { display: none; }
-[data-theme="light"] nav .logo .icon-light { display: block; }
+
+.icon-dark { display: block; }
+.icon-light { display: none; }
+[data-theme="light"] .icon-dark { display: none; }
+[data-theme="light"] .icon-light { display: block; }
 
 nav .nav-right {
     display: flex;
