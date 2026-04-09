@@ -11,6 +11,11 @@ var burger = document.querySelector('.burger');
 var mobileMenu = document.querySelector('.mobile-menu');
 
 if (burger && mobileMenu) {
+    function closeMenu() {
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+    }
+
     burger.addEventListener('click', function() {
         burger.classList.toggle('open');
         mobileMenu.classList.toggle('open');
@@ -18,9 +23,13 @@ if (burger && mobileMenu) {
 
     // Close menu when a link is clicked
     mobileMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            burger.classList.remove('open');
-            mobileMenu.classList.remove('open');
-        });
+        link.addEventListener('click', closeMenu);
     });
+
+    // Close menu on scroll
+    window.addEventListener('scroll', function() {
+        if (mobileMenu.classList.contains('open')) {
+            closeMenu();
+        }
+    }, { passive: true });
 }
