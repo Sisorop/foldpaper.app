@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — FoldPaper</title>
+    <link rel="icon" type="image/png" href="/assets/icon.png">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
     <style>
         :root {
             --bg: #0f1117;
@@ -47,10 +49,19 @@
         }
 
         nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-weight: 700;
             font-size: 1.125rem;
             color: var(--text);
             text-decoration: none;
+        }
+
+        nav .logo img {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
         }
 
         nav .links {
@@ -151,7 +162,7 @@
 <body>
     <nav>
         <div class="container">
-            <a href="/" class="logo">FoldPaper</a>
+            <a href="/" class="logo"><img src="/assets/icon.png" alt="">FoldPaper</a>
             <div class="links">
                 <a href="/privacy" class="active">Privacy Policy</a>
                 <a href="/terms">Terms of Service</a>

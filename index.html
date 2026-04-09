@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoldPaper — Live Wallpaper for Foldables &amp; Beyond</title>
     <meta name="description" content="FoldPaper transforms your Android device with dynamic live wallpapers that react to your foldable screen.">
+    <link rel="icon" type="image/png" href="/assets/icon.png">
+    <link rel="apple-touch-icon" href="/assets/icon.png">
+    <meta property="og:title" content="FoldPaper">
+    <meta property="og:description" content="Dynamic live wallpapers that react to your foldable screen.">
+    <meta property="og:image" content="/assets/icon.png">
+    <meta property="og:type" content="website">
     <style>
         :root {
             --bg: #0f1117;
@@ -48,10 +54,19 @@
         }
 
         nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-weight: 700;
             font-size: 1.125rem;
             color: var(--text);
             text-decoration: none;
+        }
+
+        nav .logo img {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
         }
 
         nav .links {
@@ -82,24 +97,18 @@
         }
 
         .hero-icon {
-            width: 96px;
-            height: 96px;
-            background: linear-gradient(135deg, var(--accent), #5b4cc4);
-            border-radius: 24px;
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
             margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(124, 108, 240, 0.15);
         }
 
-        .hero-icon svg {
-            width: 48px;
-            height: 48px;
-            fill: none;
-            stroke: white;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .hero-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         h1 {
@@ -112,47 +121,122 @@
         .tagline {
             font-size: 1.125rem;
             color: var(--text-muted);
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem;
             max-width: 480px;
         }
 
-        .cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: white;
-            padding: 0.875rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background 0.15s;
-            margin-bottom: 3rem;
+        .wip {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 999px;
+            padding: 0.25rem 0.75rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
-        .cta:hover { background: var(--accent-hover); }
+        .link-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
 
-        .legal-links {
+        .link-card {
             display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .legal-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            padding: 0.5rem 1rem;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            text-decoration: none;
+            color: var(--text);
             transition: all 0.15s;
         }
 
-        .legal-links a:hover {
-            color: var(--text);
+        .link-card:hover {
             border-color: var(--accent);
+            background: #1e2030;
+        }
+
+        .link-card.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .link-card .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .link-card .icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .link-card .icon.accent {
+            background: var(--accent);
+        }
+
+        .link-card .icon.accent svg {
+            stroke: white;
+        }
+
+        .link-card .label {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-card .sublabel {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .link-card .badge {
+            margin-left: auto;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.15rem 0.5rem;
+            white-space: nowrap;
+        }
+
+        .divider {
+            width: 100%;
+            max-width: 400px;
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0.5rem 0;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+            padding-left: 0.25rem;
         }
 
         footer {
@@ -167,10 +251,13 @@
 <body>
     <nav>
         <div class="container">
-            <a href="/" class="logo">FoldPaper</a>
+            <a href="/" class="logo">
+                <img src="/assets/icon.png" alt="FoldPaper icon">
+                FoldPaper
+            </a>
             <div class="links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
                 <a href="/impressum">Impressum</a>
             </div>
         </div>
@@ -178,22 +265,55 @@
 
     <main>
         <div class="hero-icon">
-            <svg viewBox="0 0 24 24">
-                <path d="M4 4h16v16H4z"/>
-                <path d="M12 4v16"/>
-                <path d="M4 12h16"/>
-            </svg>
+            <img src="/assets/icon.png" alt="FoldPaper">
         </div>
         <h1>FoldPaper</h1>
         <p class="tagline">Dynamic live wallpapers that react to your foldable screen — with depth effects, motion layers, and presets for every device.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.sisorop.foldpaper" class="cta">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            Get it on Google Play
-        </a>
-        <div class="legal-links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
-            <a href="/impressum">Impressum</a>
+        <span class="wip">Coming Soon</span>
+
+        <div class="section-label">Download</div>
+        <div class="link-grid">
+            <a href="https://play.google.com/store/apps/details?id=com.sisorop.foldpaper" class="link-card disabled">
+                <div class="icon accent">
+                    <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <div>
+                    <div class="label">Google Play</div>
+                    <div class="sublabel">Android</div>
+                </div>
+                <span class="badge">Soon</span>
+            </a>
+        </div>
+
+        <div class="section-label">Legal</div>
+        <div class="link-grid">
+            <a href="/privacy" class="link-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <div class="label">Privacy Policy</div>
+                    <div class="sublabel">How we handle your data</div>
+                </div>
+            </a>
+            <a href="/terms" class="link-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div>
+                    <div class="label">Terms of Service</div>
+                    <div class="sublabel">Rules of use</div>
+                </div>
+            </a>
+            <a href="/impressum" class="link-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </div>
+                <div>
+                    <div class="label">Impressum</div>
+                    <div class="sublabel">Legal disclosure (German law)</div>
+                </div>
+            </a>
         </div>
     </main>
 
