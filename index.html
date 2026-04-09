@@ -40,13 +40,15 @@
             margin-bottom: 2rem;
         }
 
-        .hero-icon svg {
+        .hero-icon img {
             width: 100%;
             height: 100%;
         }
 
-        .hero-icon .panel-outer { fill: var(--icon-fill); fill-opacity: 0.5; }
-        .hero-icon .panel-center { fill: var(--icon-fill); fill-opacity: 0.9; }
+        .hero-icon .icon-dark { display: block; }
+        .hero-icon .icon-light { display: none; }
+        [data-theme="light"] .hero-icon .icon-dark { display: none; }
+        [data-theme="light"] .hero-icon .icon-light { display: block; }
 
         h1 {
             font-size: 2.5rem;
@@ -159,7 +161,8 @@
     <nav>
         <div class="container">
             <a href="/" class="logo">
-                <svg viewBox="28 29 53 50"><path class="panel-outer" d="M30,31 L45,33 L45,77 L30,75 Z"/><path class="panel-center" d="M47,33 L62,31 L62,75 L47,77 Z"/><path class="panel-outer" d="M64,31 L79,33 L79,77 L64,75 Z"/></svg>
+                <img class="logo-icon icon-dark" src="/assets/icon-trimmed-dark.svg" alt="">
+                <img class="logo-icon icon-light" src="/assets/icon-trimmed-light.svg" alt="">
                 FoldPaper
             </a>
             <div class="nav-right">
@@ -187,7 +190,8 @@
 
     <main>
         <div class="hero-icon">
-            <svg viewBox="28 29 53 50"><path class="panel-outer" d="M30,31 L45,33 L45,77 L30,75 Z"/><path class="panel-center" d="M47,33 L62,31 L62,75 L47,77 Z"/><path class="panel-outer" d="M64,31 L79,33 L79,77 L64,75 Z"/></svg>
+            <img class="icon-dark" src="/assets/icon-trimmed-dark.svg" alt="FoldPaper">
+            <img class="icon-light" src="/assets/icon-trimmed-light.svg" alt="FoldPaper">
         </div>
         <h1>FoldPaper</h1>
         <p class="tagline">A wallpaper manager and editor built for foldable screens.</p>
