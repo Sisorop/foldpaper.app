@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoldPaper — Live Wallpaper for Foldables &amp; Beyond</title>
     <meta name="description" content="FoldPaper transforms your Android device with dynamic live wallpapers that react to your foldable screen.">
-    <link rel="icon" type="image/png" href="/assets/icon.png">
+    <link rel="icon" type="image/svg+xml" href="/assets/icon-trimmed.svg">
     <link rel="apple-touch-icon" href="/assets/icon.png">
     <meta property="og:title" content="FoldPaper">
-    <meta property="og:description" content="Dynamic live wallpapers that react to your foldable screen.">
+    <meta property="og:description" content="A wallpaper manager and editor built for foldable screens.">
     <meta property="og:image" content="/assets/icon.png">
     <meta property="og:type" content="website">
+    <script>
+        (function() {
+            var saved = localStorage.getItem('theme');
+            if (saved) { document.documentElement.setAttribute('data-theme', saved); }
+            else if (window.matchMedia('(prefers-color-scheme: light)').matches) { document.documentElement.setAttribute('data-theme', 'light'); }
+        })();
+    </script>
     <style>
         :root {
             --bg: #0f1117;
@@ -20,6 +27,18 @@
             --text-muted: #9395a5;
             --accent: #7c6cf0;
             --accent-hover: #9589f5;
+            --card-hover: #1e2030;
+        }
+
+        [data-theme="light"] {
+            --bg: #f5f5f7;
+            --surface: #ffffff;
+            --border: #dcdce0;
+            --text: #1a1c25;
+            --text-muted: #6b6d7b;
+            --accent: #6555d4;
+            --accent-hover: #7c6cf0;
+            --card-hover: #f0edff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,6 +51,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: background 0.2s, color 0.2s;
         }
 
         nav {
@@ -41,6 +61,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            transition: background 0.2s, border-color 0.2s;
         }
 
         nav .container {
@@ -69,10 +90,18 @@
             border-radius: 6px;
         }
 
+        [data-theme="light"] nav .logo img { filter: invert(1); }
+
+        nav .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
         nav .links {
             display: flex;
             gap: 1.25rem;
-            flex-wrap: wrap;
         }
 
         nav .links a {
@@ -83,6 +112,28 @@
         }
 
         nav .links a:hover { color: var(--accent-hover); }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.35rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            width: 32px;
+            height: 32px;
+        }
+
+        .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+        .theme-toggle svg { width: 16px; height: 16px; }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
         main {
             max-width: 720px;
@@ -161,7 +212,7 @@
 
         .link-card:hover {
             border-color: var(--accent);
-            background: #1e2030;
+            background: var(--card-hover);
         }
 
         .link-card.disabled {
@@ -201,11 +252,13 @@
         .link-card .label {
             font-weight: 500;
             font-size: 0.95rem;
+            text-align: left;
         }
 
         .link-card .sublabel {
             font-size: 0.8rem;
             color: var(--text-muted);
+            text-align: left;
         }
 
         .link-card .badge {
@@ -216,14 +269,6 @@
             border-radius: 999px;
             padding: 0.15rem 0.5rem;
             white-space: nowrap;
-        }
-
-        .divider {
-            width: 100%;
-            max-width: 400px;
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 0.5rem 0;
         }
 
         .section-label {
@@ -245,6 +290,7 @@
             color: var(--text-muted);
             font-size: 0.8rem;
             border-top: 1px solid var(--border);
+            transition: border-color 0.2s;
         }
     </style>
 </head>
@@ -252,13 +298,19 @@
     <nav>
         <div class="container">
             <a href="/" class="logo">
-                <img src="/assets/icon.png" alt="FoldPaper icon">
+                <img src="/assets/icon-trimmed.svg" alt="FoldPaper icon">
                 FoldPaper
             </a>
-            <div class="links">
-                <a href="/privacy">Privacy</a>
-                <a href="/terms">Terms</a>
-                <a href="/impressum">Impressum</a>
+            <div class="nav-right">
+                <div class="links">
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/impressum">Impressum</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -268,7 +320,7 @@
             <img src="/assets/icon.png" alt="FoldPaper">
         </div>
         <h1>FoldPaper</h1>
-        <p class="tagline">Dynamic live wallpapers that react to your foldable screen — with depth effects, motion layers, and presets for every device.</p>
+        <p class="tagline">A wallpaper manager and editor built for foldable screens.</p>
         <span class="wip">Coming Soon</span>
 
         <div class="section-label">Download</div>
@@ -293,7 +345,7 @@
                 </div>
                 <div>
                     <div class="label">Privacy Policy</div>
-                    <div class="sublabel">How we handle your data</div>
+                    <div class="sublabel">How your data is handled</div>
                 </div>
             </a>
             <a href="/terms" class="link-card">
@@ -318,7 +370,16 @@
     </main>
 
     <footer>
-        &copy; 2025 Sisorop. All rights reserved.
+        &copy; 2026 Sisorop. All rights reserved.
     </footer>
+
+    <script>
+        document.querySelector('.theme-toggle').addEventListener('click', function() {
+            var current = document.documentElement.getAttribute('data-theme');
+            var next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
 </body>
 </html>

@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum — FoldPaper</title>
-    <link rel="icon" type="image/png" href="/assets/icon.png">
+    <link rel="icon" type="image/svg+xml" href="/assets/icon-trimmed.svg">
     <link rel="apple-touch-icon" href="/assets/icon.png">
+    <script>
+        (function() {
+            var saved = localStorage.getItem('theme');
+            if (saved) { document.documentElement.setAttribute('data-theme', saved); }
+            else if (window.matchMedia('(prefers-color-scheme: light)').matches) { document.documentElement.setAttribute('data-theme', 'light'); }
+        })();
+    </script>
     <style>
         :root {
             --bg: #0f1117;
@@ -15,6 +22,16 @@
             --text-muted: #9395a5;
             --accent: #7c6cf0;
             --accent-hover: #9589f5;
+        }
+
+        [data-theme="light"] {
+            --bg: #f5f5f7;
+            --surface: #ffffff;
+            --border: #dcdce0;
+            --text: #1a1c25;
+            --text-muted: #6b6d7b;
+            --accent: #6555d4;
+            --accent-hover: #7c6cf0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,6 +44,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: background 0.2s, color 0.2s;
         }
 
         nav {
@@ -36,6 +54,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            transition: background 0.2s, border-color 0.2s;
         }
 
         nav .container {
@@ -64,10 +83,18 @@
             border-radius: 6px;
         }
 
+        [data-theme="light"] nav .logo img { filter: invert(1); }
+
+        nav .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
         nav .links {
             display: flex;
             gap: 1.25rem;
-            flex-wrap: wrap;
         }
 
         nav .links a {
@@ -80,29 +107,53 @@
         nav .links a:hover { color: var(--accent-hover); }
         nav .links a.active { color: var(--accent); }
 
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.35rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            width: 32px;
+            height: 32px;
+        }
+
+        .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+        .theme-toggle svg { width: 16px; height: 16px; }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
         main {
             max-width: 720px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.25rem;
             flex: 1;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 2rem;
             letter-spacing: -0.02em;
         }
 
         h2 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-top: 2.5rem;
+            margin-top: 2.25rem;
             margin-bottom: 0.75rem;
             color: var(--accent);
         }
 
-        p { color: var(--text); margin-bottom: 0.75rem; }
+        p { color: var(--text); margin-bottom: 0.75rem; font-size: 0.925rem; }
 
         a { color: var(--accent); text-decoration: none; }
         a:hover { color: var(--accent-hover); text-decoration: underline; }
@@ -114,6 +165,10 @@
             padding: 0.15rem 0.4rem;
             font-size: 0.85rem;
             color: var(--accent);
+        }
+
+        [data-theme="light"] .placeholder {
+            background: #f0edff;
         }
 
         .legal-ref {
@@ -128,17 +183,31 @@
             color: var(--text-muted);
             font-size: 0.8rem;
             border-top: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        @media (min-width: 640px) {
+            main { padding: 3rem 1.5rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.25rem; }
+            p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <a href="/" class="logo"><img src="/assets/icon.png" alt="">FoldPaper</a>
-            <div class="links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
-                <a href="/impressum" class="active">Impressum</a>
+            <a href="/" class="logo"><img src="/assets/icon-trimmed.svg" alt="">FoldPaper</a>
+            <div class="nav-right">
+                <div class="links">
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/impressum" class="active">Impressum</a>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -180,11 +249,20 @@
         </p>
 
         <h2>Streitbeilegung</h2>
-        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <p>Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
     </main>
 
     <footer>
-        &copy; 2025 Sisorop. Alle Rechte vorbehalten.
+        &copy; 2026 Sisorop. Alle Rechte vorbehalten.
     </footer>
+
+    <script>
+        document.querySelector('.theme-toggle').addEventListener('click', function() {
+            var current = document.documentElement.getAttribute('data-theme');
+            var next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
 </body>
 </html>

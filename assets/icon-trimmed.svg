@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 29 53 50">
+  <style>
+    .outer { fill-opacity: 0.5; }
+    .center { fill-opacity: 0.9; }
+    path { fill: #FFFFFF; }
+    @media (prefers-color-scheme: light) { path { fill: #1a1c25; } }
+  </style>
+  <path class="outer" d="M30,31 L45,33 L45,77 L30,75 Z"/>
+  <path class="center" d="M47,33 L62,31 L62,75 L47,77 Z"/>
+  <path class="outer" d="M64,31 L79,33 L79,77 L64,75 Z"/>
+</svg>
