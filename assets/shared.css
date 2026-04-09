@@ -7,6 +7,7 @@
     --accent: #7c6cf0;
     --accent-hover: #9589f5;
     --card-hover: #1e2030;
+    --icon-fill: #90CAF9;
 }
 
 [data-theme="light"] {
@@ -18,6 +19,7 @@
     --accent: #6555d4;
     --accent-hover: #7c6cf0;
     --card-hover: #f0edff;
+    --icon-fill: #1976D2;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -70,13 +72,13 @@ nav .logo {
 
 nav .logo:hover { text-decoration: none; }
 
-nav .logo img {
+nav .logo svg {
     width: 28px;
     height: 28px;
-    border-radius: 6px;
 }
 
-[data-theme="light"] nav .logo img { filter: invert(1); }
+nav .logo svg .panel-outer { fill: var(--icon-fill); fill-opacity: 0.5; }
+nav .logo svg .panel-center { fill: var(--icon-fill); fill-opacity: 0.9; }
 
 nav .nav-right {
     display: flex;

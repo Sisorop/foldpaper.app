@@ -37,27 +37,16 @@
         .hero-icon {
             width: 120px;
             height: 120px;
-            border-radius: 28px;
             margin-bottom: 2rem;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(124, 108, 240, 0.15);
         }
 
-        .hero-icon img {
+        .hero-icon svg {
             width: 100%;
             height: 100%;
-            object-fit: cover;
         }
 
-        .hero-icon .icon-dark { display: block; }
-        .hero-icon .icon-light { display: none; }
-        [data-theme="light"] .hero-icon .icon-dark { display: none; }
-        [data-theme="light"] .hero-icon .icon-light { display: block; }
-
-        [data-theme="light"] .hero-icon {
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border);
-        }
+        .hero-icon .panel-outer { fill: var(--icon-fill); fill-opacity: 0.5; }
+        .hero-icon .panel-center { fill: var(--icon-fill); fill-opacity: 0.9; }
 
         h1 {
             font-size: 2.5rem;
@@ -170,7 +159,7 @@
     <nav>
         <div class="container">
             <a href="/" class="logo">
-                <img src="/assets/icon-trimmed.svg" alt="">
+                <svg viewBox="28 29 53 50"><path class="panel-outer" d="M30,31 L45,33 L45,77 L30,75 Z"/><path class="panel-center" d="M47,33 L62,31 L62,75 L47,77 Z"/><path class="panel-outer" d="M64,31 L79,33 L79,77 L64,75 Z"/></svg>
                 FoldPaper
             </a>
             <div class="nav-right">
@@ -198,8 +187,7 @@
 
     <main>
         <div class="hero-icon">
-            <img class="icon-dark" src="/assets/icon.png" alt="FoldPaper">
-            <img class="icon-light" src="/assets/icon-light.png" alt="FoldPaper">
+            <svg viewBox="28 29 53 50"><path class="panel-outer" d="M30,31 L45,33 L45,77 L30,75 Z"/><path class="panel-center" d="M47,33 L62,31 L62,75 L47,77 Z"/><path class="panel-outer" d="M64,31 L79,33 L79,77 L64,75 Z"/></svg>
         </div>
         <h1>FoldPaper</h1>
         <p class="tagline">A wallpaper manager and editor built for foldable screens.</p>

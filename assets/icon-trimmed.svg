@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="28 29 53 50">
   <style>
-    .outer { fill: #93BCF0; }
-    .center { fill: #3C82D0; }
+    path { fill: #90CAF9; }
+    .outer { fill-opacity: 0.5; }
+    .center { fill-opacity: 0.9; }
+    @media (prefers-color-scheme: light) { path { fill: #1976D2; } }
   </style>
   <path class="outer" d="M30,31 L45,33 L45,77 L30,75 Z"/>
   <path class="center" d="M47,33 L62,31 L62,75 L47,77 Z"/>
