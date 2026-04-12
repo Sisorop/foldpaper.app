@@ -215,9 +215,9 @@
         <div class="hero-icon">
             <svg id="hero-fold-icon" viewBox="0 0 49 46" xmlns="http://www.w3.org/2000/svg" aria-label="FoldPaper">
                 <g id="hero-fold-g">
+                    <path id="hero-panel-bot" d=""></path>
+                    <path id="hero-panel-mid" d=""></path>
                     <path id="hero-panel-left" d=""></path>
-                    <path id="hero-panel-mid1" d=""></path>
-                    <path id="hero-panel-mid2" d=""></path>
                 </g>
             </svg>
         </div>
@@ -281,9 +281,9 @@
             var svg = document.getElementById('hero-fold-icon');
             if (!svg) return;
             var g = document.getElementById('hero-fold-g');
+            var bot = document.getElementById('hero-panel-bot');
+            var mid = document.getElementById('hero-panel-mid');
             var left = document.getElementById('hero-panel-left');
-            var mid1 = document.getElementById('hero-panel-mid1');
-            var mid2 = document.getElementById('hero-panel-mid2');
 
             function lerp(a, b, t) { return a + (b - a) * t; }
             function poly(p) {
@@ -303,21 +303,22 @@
                 var rBRx = lerp(49, 19, s1);
                 var R = [[rLx, 0], [rTRx, 2], [rBRx, 46], [rLx, 44]];
 
-                left.setAttribute('d', poly(L));
-                left.setAttribute('class', 'outer');
-
+                // Draw order (bottom → top): bot, mid, left.
+                // Left is always on top. Center vs right swap based on flip.
                 var centerFlipped = cTRx <= 17;
                 if (centerFlipped) {
-                    mid1.setAttribute('d', poly(R));
-                    mid1.setAttribute('class', 'outer');
-                    mid2.setAttribute('d', poly(C));
-                    mid2.setAttribute('class', 'center');
+                    bot.setAttribute('d', poly(R));
+                    bot.setAttribute('class', 'outer');
+                    mid.setAttribute('d', poly(C));
+                    mid.setAttribute('class', 'center');
                 } else {
-                    mid1.setAttribute('d', poly(C));
-                    mid1.setAttribute('class', 'center');
-                    mid2.setAttribute('d', poly(R));
-                    mid2.setAttribute('class', 'outer');
+                    bot.setAttribute('d', poly(C));
+                    bot.setAttribute('class', 'center');
+                    mid.setAttribute('d', poly(R));
+                    mid.setAttribute('class', 'outer');
                 }
+                left.setAttribute('d', poly(L));
+                left.setAttribute('class', 'outer');
 
                 var foldedVW = 49 - 15 * s1 - 15 * s2;
                 var tx = (49 - foldedVW) / 2;
