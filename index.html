@@ -50,12 +50,19 @@
             filter: drop-shadow(0 0 20px rgba(25, 118, 210, 0.25));
         }
 
-        .hero-icon img {
+        .hero-icon img,
+        .hero-icon svg {
             width: 100%;
             height: 100%;
         }
 
+        #hero-fold-icon .outer { fill: #55728C; }
+        #hero-fold-icon .center { fill: #90CAF9; }
+        [data-theme="light"] #hero-fold-icon .outer { fill: #8CBAE8; }
+        [data-theme="light"] #hero-fold-icon .center { fill: #1976D2; }
+
         h1 {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
@@ -195,8 +202,13 @@
 
     <main>
         <div class="hero-icon">
-            <img class="icon-dark" src="/assets/icon-trimmed-dark.svg" alt="FoldPaper">
-            <img class="icon-light" src="/assets/icon-trimmed-light.svg" alt="FoldPaper">
+            <svg id="hero-fold-icon" viewBox="0 0 49 46" xmlns="http://www.w3.org/2000/svg" aria-label="FoldPaper">
+                <g id="hero-fold-g">
+                    <path id="hero-panel-left" d=""></path>
+                    <path id="hero-panel-mid1" d=""></path>
+                    <path id="hero-panel-mid2" d=""></path>
+                </g>
+            </svg>
         </div>
         <h1>FoldPaper</h1>
         <p class="tagline">A wallpaper manager and editor built for foldable screens.</p>
@@ -253,5 +265,80 @@
     </footer>
 
     <script src="/assets/shared.js"></script>
+    <script>
+        (function () {
+            var svg = document.getElementById('hero-fold-icon');
+            if (!svg) return;
+            var g = document.getElementById('hero-fold-g');
+            var left = document.getElementById('hero-panel-left');
+            var mid1 = document.getElementById('hero-panel-mid1');
+            var mid2 = document.getElementById('hero-panel-mid2');
+
+            function lerp(a, b, t) { return a + (b - a) * t; }
+            function poly(p) {
+                return 'M' + p[0][0] + ',' + p[0][1] +
+                       ' L' + p[1][0] + ',' + p[1][1] +
+                       ' L' + p[2][0] + ',' + p[2][1] +
+                       ' L' + p[3][0] + ',' + p[3][1] + ' Z';
+            }
+
+            function render(s1, s2) {
+                var L = [[0, 0], [15, 2], [15, 46], [0, 44]];
+                var cTRx = lerp(32, 2, s2);
+                var cBRx = lerp(32, 2, s2);
+                var C = [[17, 2], [cTRx, 0], [cBRx, 44], [17, 46]];
+                var rLx = 34 - 30 * s2;
+                var rTRx = lerp(49, 19, s1);
+                var rBRx = lerp(49, 19, s1);
+                var R = [[rLx, 0], [rTRx, 2], [rBRx, 46], [rLx, 44]];
+
+                left.setAttribute('d', poly(L));
+                left.setAttribute('class', 'outer');
+
+                var centerFlipped = cTRx <= 17;
+                if (centerFlipped) {
+                    mid1.setAttribute('d', poly(R));
+                    mid1.setAttribute('class', 'outer');
+                    mid2.setAttribute('d', poly(C));
+                    mid2.setAttribute('class', 'center');
+                } else {
+                    mid1.setAttribute('d', poly(C));
+                    mid1.setAttribute('class', 'center');
+                    mid2.setAttribute('d', poly(R));
+                    mid2.setAttribute('class', 'outer');
+                }
+
+                var foldedVW = 49 - 15 * s1 - 15 * s2;
+                var tx = (49 - foldedVW) / 2;
+                g.setAttribute('transform', 'translate(' + tx + ',0)');
+            }
+
+            function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function animate(from, to, dur, onUpdate) {
+                return new Promise(function (resolve) {
+                    var t0 = performance.now();
+                    function frame(now) {
+                        var t = Math.min(1, (now - t0) / dur);
+                        onUpdate(from + (to - from) * easeOutCubic(t));
+                        if (t < 1) requestAnimationFrame(frame);
+                        else resolve();
+                    }
+                    requestAnimationFrame(frame);
+                });
+            }
+
+            var s1 = 1, s2 = 1;
+            render(s1, s2);
+
+            setTimeout(function () {
+                animate(1, 0, 800, function (v) { s2 = v; render(s1, s2); }).then(function () {
+                    return new Promise(function (r) { setTimeout(r, 250); });
+                }).then(function () {
+                    return animate(1, 0, 800, function (v) { s1 = v; render(s1, s2); });
+                });
+            }, 350);
+        })();
+    </script>
 </body>
 </html>
