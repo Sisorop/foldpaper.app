@@ -343,15 +343,16 @@
             var s1 = 1, s2 = 1;
             render(s1, s2);
 
-            // Wait for the bounce-in (200ms delay + 900ms duration) plus a beat,
-            // matching the splash screen's "scale-in then unfold" sequence.
+            // Start unfolding at the bounce's overshoot peak (when the scale
+            // begins contracting back toward 1). Bounce runs 200–1100ms; the
+            // cubic-bezier(0.34, 1.56, 0.64, 1) peaks around t≈0.55 → ~700ms.
             setTimeout(function () {
                 animate(1, 0, 800, function (v) { s2 = v; render(s1, s2); }).then(function () {
                     return new Promise(function (r) { setTimeout(r, 250); });
                 }).then(function () {
                     return animate(1, 0, 800, function (v) { s1 = v; render(s1, s2); });
                 });
-            }, 1300);
+            }, 700);
         })();
     </script>
 </body>
