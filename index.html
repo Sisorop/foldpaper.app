@@ -56,6 +56,19 @@
             height: 100%;
         }
 
+        #hero-fold-icon {
+            transform: scale(0);
+            transform-origin: 50% 50%;
+            animation: hero-bounce-in 900ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms forwards;
+        }
+
+        @keyframes hero-bounce-in {
+            0%   { transform: scale(0); }
+            60%  { transform: scale(1.12); }
+            80%  { transform: scale(0.96); }
+            100% { transform: scale(1); }
+        }
+
         #hero-fold-icon .outer { fill: #55728C; }
         #hero-fold-icon .center { fill: #90CAF9; }
         [data-theme="light"] #hero-fold-icon .outer { fill: #8CBAE8; }
@@ -331,13 +344,15 @@
             var s1 = 1, s2 = 1;
             render(s1, s2);
 
+            // Wait for the bounce-in (200ms delay + 900ms duration) plus a beat,
+            // matching the splash screen's "scale-in then unfold" sequence.
             setTimeout(function () {
                 animate(1, 0, 800, function (v) { s2 = v; render(s1, s2); }).then(function () {
                     return new Promise(function (r) { setTimeout(r, 250); });
                 }).then(function () {
                     return animate(1, 0, 800, function (v) { s1 = v; render(s1, s2); });
                 });
-            }, 350);
+            }, 1300);
         })();
     </script>
 </body>
